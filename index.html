@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>FiltraMais</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="FiltraMais, Sistema inteligente de filtro de vídeos no youtube" name="description">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-xxl position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <a href="" class="navbar-brand p-0">
+                    <h1 class="m-0"><i class="fa fa-search me-2"></i>FiltraMais</span></h1>
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="contact.html" class="nav-item nav-link">Contato</a>
+                    </div>
+                    <butaton type="button" class="btn text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+                    <a href="https://www.mcmd.site" class="btn btn-secondary text-light rounded-pill py-2 px-4 ms-3" target="_blank">Já sou assinante</a>
+                    <a href="https://pay.kiwify.com.br/uFfgKjR" class="btn btn-secondary text-light rounded-pill py-2 px-4 ms-3" target="_blank">Quero assinar</a>
+                </div>
+            </nav>
+
+            <div class="container-xxl py-5 bg-primary hero-header mb-5">
+                <div class="container my-5 py-5 px-lg-5">
+                    <div class="row g-5 py-5">
+                        <div class="col-lg-6 text-center text-lg-start">
+                            <h2 class="mb-4 animated zoomIn" style="text-align: justify;">
+                                <span style="color: rgb(241, 227, 23) !important;">Pare de Perder Dinheiro com Campanhas que não Vendem,</span> 
+                                <span class="text-white">Crie campanhas que Vendem Todos os Dias</span>
+                            </h2>
+                            <p class="text-white pb-2 animated zoomIn" style="text-align: justify; font-size: large;">"Otimize seus filtros de vídeos para a rede de pesquisa e rede de display: Poupe tempo e dinheiro evitando campanhas inadequadas em vídeos que não convertem."</p>
+                            <a href="https://pay.kiwify.com.br/3a6xK3U" class="btn btn-outline-light py-sm-2 px-sm-4 rounded-pill animated slideInRight" style="margin-right: 25px; font-size: 14px;" target="_blank"><strong>Mensal - R$: 97,00</strong></a>
+                            <a href="https://pay.kiwify.com.br/4liILer" class="btn btn-outline-light py-sm-2 px-sm-4 rounded-pill animated slideInRight" style="font-size: 14px;" target="_blank"><strong>Plano Vitalício - R$: 297,00</strong></a>
+                            
+                        </div>
+                        <div class="col-lg-6 text-center text-lg-start">
+                            <img class="img-fluid" src="img/hero.png" alt="Primeira imagem">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar & Hero End -->
+
+        <!-- Full Screen Search Start -->
+        <div class="modal fade" id="searchModal" tabindex="-1">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content" style="background: rgba(29, 29, 39, 0.7);">
+                    <div class="modal-header border-0">
+                        <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex align-items-center justify-content-center">
+                        <div class="input-group" style="max-width: 600px;">
+                            <input type="text" class="form-control bg-transparent border-light p-3" placeholder="Type search keyword">
+                            <button class="btn btn-light px-4"><i class="bi bi-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Full Screen Search End -->
+
+        <!-- About Start -->
+        <div class="container-xxl py-5">
+            <div class="container px-lg-5">
+                <div class="row g-5">
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="section-title">
+                            <h2 class="mt-2" style="text-align: justify;">Descubra a Revolução no Mundo do Marketing Digital com o FiltraMAIS!</h2>
+                        </div>
+                        <p class="mb-4" style="text-align: justify;">Você, afiliado apaixonado por resultados, imagine uma ferramenta irá te auxliar na filtragem e analise de vídeos e canais do youtuber, e que ainda transforma cada link que você compartilha em uma obra-prima da persuasão, uma poderosa arma de conversão. Apresentamos a você nossa última inovação: FiltraMAIS - a ferramenta definitiva para afiliados que desejam conquistar o mercado digital.</p>
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Premiado</h6>
+                                <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Equipe Profissional</h6>
+                            </div>
+                            <div class="col-sm-6">
+                                <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Suporte 24 horas por dia, 7 dias por semana</h6>
+                                <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Preços justos</h6>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mt-4">
+                            <a class="btn btn-primary rounded-pill px-4 me-3" href="">SAIBA MAIS</a>
+                            <a class="btn btn-outline-primary btn-square me-3" href="https://api.whatsapp.com/send?phone=5563992259154&text=Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20FiltraMais" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a class="btn btn-outline-primary btn-square me-3" href=""><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-primary btn-square me-3" href=""><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="img/about.jpg" alt="Sistema de pesquisa">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+        <!-- Newsletter Start -->
+
+        <div class="container-xxl bg-primary newsletter my-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="container px-lg-5">
+                <div class="row align-items-center" style="height: 750px;">
+                    <div class="col-12 text-center"> <!-- Centralizado -->
+                        <h1 class="mt-4 mb-4 text-white">O que torna o FiltraMAIS único.</h1>
+                    </div>
+                    <div class="col-12 text-left"> <!-- À esquerda com um marcador -->
+                        <h4 class="mt-4 mb-2 text-white">
+                            <i class="fa fa-check text-black me-2"></i>Filtro de Vídeos e Canais do YouTube
+                        </h4>
+                        <p class="text-white">Selecione os vídeos certos para sua audiência. O FiltraMAIS filtra automaticamente vídeos do YouTube, garantindo que apenas conteúdo relevante e de alta qualidade esteja associados as suas campanhas.</p>
+                    </div>
+
+                    <div class="col-12 text-left"> <!-- À esquerda com um marcador -->
+                        <h4 class="mt-4 mb-2 text-white">
+                            <i class="fa fa-check text-black me-2"></i>Não Sabe o ID do Canal ?
+                        </h4>
+                        <p class="text-white">Com super buscador de ID pela URL do canal. Agora não existe canal com o ID oculto.</p>
+                    </div>
+
+                    <div class="col-12 text-left"> <!-- À esquerda e justificado -->
+                        <h4 class="mt-4 mb-2 text-white">
+                            <i class="fa fa-check text-black me-2"></i>Camuflagem de Links de Alta Performance
+                        </h4>
+                        <p class="text-white">Seus links agora são invisíveis para os olhos comuns, mas irresistíveis para o público. Aumente a taxa de cliques ao camuflar URLs longas e complexas.
+                            Saiba quantos clicks teve em seu link, data do último click. Informações super valiosas para otimização de suas campanhas.</p>
+                    </div>
+
+                    <div class="col-12 text-left"> <!-- À esquerda e justificado -->
+                        <h4 class="mt-4 mb-2 text-white">
+                            <i class="fa fa-check text-black me-2"></i>Acompanhe de Onde Esta Vindo os Cliquem em Seus Links.
+                        </h4>
+                        <p class="text-white">FiltraMais permite que os usuários rastreiem a localização geográfica dos cliques em seus links, fornecendo informações sobre a cidade e o estado de origem. Essa adição oferece uma visão mais detalhada do envolvimento com os links, possibilitando análises mais precisas e estratégicas sobre o público-alvo e o desempenho das campanhas online.</p>
+                    </div>
+
+                    <div class="col-12 text-left"> <!-- À esquerda e justificado -->
+                        <h4 class="mt-4 mb-2 text-white">
+                            <i class="fa fa-check text-black me-2"></i>Economize Tempo e Energia
+                        </h4>
+
+                        <p class="text-white">
+                            Automatize tarefas tediosas, como filtragem de vídeos e produtos, para que você possa se concentrar no que faz de melhor,
+                            <span style="color: yellow; font-weight: bold; font-size: 1.2em;">promover e lucrar.</span>
+                        </p>
+                        
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>                                
+        <!-- Newsletter End -->
+
+        <!-- Service End -->
+
+        <!-- Portfolio Start -->
+        <div class="container-xxl py-2"> <!-- Reduzi o espaçamento novamente -->
+            <div class="container px-lg-5">
+                <div class="section-title text-center mb-2 pb-1 wow fadeInUp" data-wow-delay="0.1s"> <!-- Reduzi o espaçamento novamente -->
+                    <h6 class="position-relative d-inline text-primary ps-4">Nosso Sistema</h6>
+                    <h2 class="mt-2">Algumas Telas do Sistema</h2>
+                </div>
+                <div class="row g-4 portfolio-container">
+        
+        
+                    <div class="col-lg-4 col-md-6 portfolio-item first wow zoomIn" data-wow-delay="0.1s">
+                        <div class="position-relative rounded overflow-hidden">
+                            <img class="img-fluid w-100" src="img/TelaLogin.png" alt="Tela de Login">
+                            <div class="portfolio-overlay">
+                                <a class="btn btn-light" href="img/TelaLogin.png" data-lightbox="portfolio"><i class="fa fa-plus fa-2x text-primary"></i></a>
+                                <div class="mt-auto">
+                                    <small class="text-white"><i class="fa fa-folder me-2"></i>Tela de Login</small>
+                                    <a class="h5 d-block text-white mt-1 mb-0" href="">FiltraMais</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 portfolio-item second wow zoomIn" data-wow-delay="0.3s">
+                        <div class="position-relative rounded overflow-hidden">
+                            <img class="img-fluid w-100" src="img/TelaPrincipal.png" alt="Tela Principal">
+                            <div class="portfolio-overlay">
+                                <a class="btn btn-light" href="img/TelaPrincipal.png" data-lightbox="portfolio"><i class="fa fa-plus fa-2x text-primary"></i></a>
+                                <div class="mt-auto">
+                                    <small class="text-white"><i class="fa fa-folder me-2"></i>Tela Principal</small>
+                                    <a class="h5 d-block text-white mt-1 mb-0" href="">FiltraMais</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 portfolio-item first wow zoomIn" data-wow-delay="0.6s">
+                        <div class="position-relative rounded overflow-hidden">
+                            <img class="img-fluid w-100" src="img/TelaFiltroYoutube.png" alt="Tela de Filtro do Youtube">
+                            <div class="portfolio-overlay">
+                                <a class="btn btn-light" href="img/TelaFiltroYoutube.png" data-lightbox="portfolio"><i class="fa fa-plus fa-2x text-primary"></i></a>
+                                <div class="mt-auto">
+                                    <small class="text-white"><i class="fa fa-folder me-2"></i>Tela de Filtro de Vídeos</small>
+                                    <a class="h5 d-block text-white mt-1 mb-0" href="">FiltraMais</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 portfolio-item second wow zoomIn" data-wow-delay="0.1s">
+                        <div class="position-relative rounded overflow-hidden">
+                            <img class="img-fluid w-100" src="img/TelaGerenciadorLinks.png" alt="Tela do Gerenciador de Links">
+                            <div class="portfolio-overlay">
+                                <a class="btn btn-light" href="img/TelaGerenciadorLinks.png" data-lightbox="portfolio"><i class="fa fa-plus fa-2x text-primary"></i></a>
+                                <div class="mt-auto">
+                                    <small class="text-white"><i class="fa fa-folder me-2"></i>Tela Gerenciador de Link´s</small>
+                                    <a class="h5 d-block text-white mt-1 mb-0" href="">FiltraMais</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 portfolio-item second wow zoomIn" data-wow-delay="0.6s">
+                        <div class="position-relative rounded overflow-hidden">
+                            <img class="img-fluid w-100" src="img/TelaAnaliseLinks.png" alt="Tela de Analise de Links">
+                            <div class="portfolio-overlay">
+                                <a class="btn btn-light" href="img/TelaAnaliseLinks.png" data-lightbox="portfolio"><i class="fa fa-plus fa-2x text-primary"></i></a>
+                                <div class="mt-auto">
+                                    <small class="text-white"><i class="fa fa-folder me-2"></i>Tela de Analise de Links por Cliques</small>
+                                    <a class="h5 d-block text-white mt-1 mb-0" href="">FiltraMais</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 portfolio-item first wow zoomIn" data-wow-delay="0.3s">
+                        <div class="position-relative rounded overflow-hidden">
+                            <img class="img-fluid w-100" src="img/TelaAnaliseLinksPorRegiao.png" alt="Tela Cadastro de Novos Links">
+                            <div class="portfolio-overlay">
+                                <a class="btn btn-light" href="img/TelaAnaliseLinksPorRegiao.png" data-lightbox="portfolio"><i class="fa fa-plus fa-2x text-primary"></i></a>
+                                <div class="mt-auto">
+                                    <small class="text-white"><i class="fa fa-folder me-2"></i>Tela de Analise de Links por Região</small>
+                                    <a class="h5 d-block text-white mt-1 mb-0" href="">FiltraMais</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio End -->
+
+        <!-- Testimonial Start -->
+        <div class="container-xxl bg-primary testimonial py-5 my-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="container py-5 px-lg-5">
+                <div class="col-12 text-center">
+                    <h1 class="mt-4 mb-4 text-white">Alguns de nossos clientes</h1>
+                </div>
+                <div class="owl-carousel testimonial-carousel" data-autoplay="true" onmouseover="stopCarousel()" onmouseout="startCarousel()">
+                    <div class="testimonial-item bg-transparent border rounded text-white p-4" onclick="centerTestimonial(this)">
+                        <i class="fa fa-quote-left fa-2x mb-3"></i>
+                        <p style="text-align: justify;">"O FiltraMais revolucionou meu trabalho como afiliada. Encontrar vídeos e canais relevantes no YouTube nunca foi tão fácil. A eficiência na busca melhorou minhas campanhas, proporcionando anúncios mais precisos e melhores conversões. Recomendo a todos os afiliados que buscam praticidade e resultados rápidos."</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg" style="width: 50px; height: 50px;" alt="Primeira Testemunha">
+                            <div class="ps-3">
+                                <h6 class="text-white mb-1">Marlene Alves</h6>
+                                <small>Afiliada Profissional</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-transparent border rounded text-white p-4">
+                        <i class="fa fa-quote-left fa-2x mb-3"></i>
+                        <p style="text-align: justify;">"O FiltraMais é um diferencial para afiliados como eu. Encontrar vídeos e canais no YouTube tornou-se simples e eficaz. Suas ferramentas de busca aprimoraram minhas campanhas, resultando em anúncios mais direcionados e conversões aprimoradas. Recomendo."</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg" style="width: 50px; height: 50px;" alt="Segunda Testemunha">
+                            <div class="ps-3">
+                                <h6 class="text-white mb-1">Paulo Cezar</h6>
+                                <small>Engenheiro/Afiliado</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-transparent border rounded text-white p-4">
+                        <i class="fa fa-quote-left fa-2x mb-3"></i>
+                        <p style="text-align: justify;">"O FiltraMais foi crucial para minha jornada como afiliado iniciante. Antes, perdia tempo e dinheiro em campanhas erradas, mas com essa ferramenta, consegui filtrar e escolher vídeos e canais no YouTube de maneira eficaz. Economizei recursos e alcancei resultados mais assertivos. Recomendo a todos que desejam evitar os erros no início da jornada como afiliado."</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg" style="width: 50px; height: 50px;" alt="Terçeira Testemunha">
+                            <div class="ps-3">
+                                <h6 class="text-white mb-1">Antônio Marcos</h6>
+                                <small>Afiliano Iniciante</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-transparent border rounded text-white p-4">
+                        <i class="fa fa-quote-left fa-2x mb-3"></i>
+                        <p style="text-align: justify;">"Investi em várias ferramentas no marketing digital. Porém, o FiltraMais foi minha melhor aquisição. Como afiliada, a busca por conteúdo relevante no YouTube era desafiadora e consumia muito tempo. Com essa ferramenta, ganhei eficiência ao filtrar vídeos e canais específicos, aprimorando minhas campanhas e maximizando os resultados. Recomendo para afiliados que buscam praticidade e sucesso em suas estratégias de marketing."</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-4.jpg" style="width: 50px; height: 50px;" alt="Quarta Testemunha">
+                            <div class="ps-3">
+                                <h6 class="text-white mb-1">Jeovana Andrade</h6>
+                                <small>Afiliada Profissional</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function centerTestimonial(element) {
+                var owl = $(".owl-carousel");
+                var index = $(element).index();
+        
+                owl.trigger("to.owl.carousel", [index, 300]); // Centralizar o depoimento clicado com uma animação de 300ms
+            }
+        
+            function stopCarousel() {
+                $(".owl-carousel").trigger("stop.owl.autoplay");
+                document.body.style.cursor = "pointer";
+            }
+        
+            function startCarousel() {
+                $(".owl-carousel").trigger("play.owl.autoplay");
+                document.body.style.cursor = "auto";
+            }
+        </script>
+        <!-- Testimonial End -->
+
+        <!-- Team Start -->
+        <div class="container-xxl py-5">
+            <div class="container px-lg-5">
+                <div class="section-title position-relative text-center mb-5 pb-2" data-wow-delay="0.1s">
+                    <h6 class="position-relative d-inline text-primary ps-4">Nosso time</h6>
+                    <h2 class="mt-2">Conheça os membros da nossa equipe</h2>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="team-item">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 d-flex flex-column align-items-center mt-4 pt-5" style="width: 75px;">
+                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-whatsapp"></i></a>
+                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-instagram"></i></a>
+                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                                <img class="img-fluid rounded w-100" src="img/team-1.jpg" alt="CEO da Empresa">
+                            </div>
+                            <div class="px-4 py-3">
+                                <h5 class="fw-bold m-0">Natal Santiago</h5>
+                                <small>CEO</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="team-item">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 d-flex flex-column align-items-center mt-4 pt-5" style="width: 75px;">
+                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-whatsapp"></i></a>
+                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-instagram"></i></a>
+                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                                <img class="img-fluid rounded w-100" src="img/team-2.jpg" alt="Secretaria Administrativa">
+                            </div>
+                            <div class="px-4 py-3">
+                                <h5 class="fw-bold m-0">Maria Célia</h5>
+                                <small>Diretora Executiva</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="team-item">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 d-flex flex-column align-items-center mt-4 pt-5" style="width: 75px;">
+                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-whatsapp"></i></a>
+                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-instagram"></i></a>
+                                    <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                                <img class="img-fluid rounded w-100" src="img/team-3.jpg" alt="Co-produtor">
+                            </div>
+                            <div class="px-4 py-3">
+                                <h5 class="fw-bold m-0">Rivelino Rodrigues</h5>
+                                <small>Co-produtor</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Team End -->
+
+        <!-- Garantia de 07 Dias Start -->
+        <div class="container-xxl bg-primary testimonial py-3 my-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="container py-5 px-lg-5">
+                <div class="d-flex align-items-center">
+                    <div class="col-6">
+                        <img src="img/garantia-7-dias.png" alt="Garantia de 7 dias" class="img-fluid" style="width: 75%;">
+                    </div>
+                    <div class="col-6 flex-grow-1 text-white text-right">
+                        <h1 class="mt-4 mb-4" style="color: white;">RISCO ZERO.<br>GARANTIA DE 7 DIAS!</h1>
+                        <p>Ao adquirir o FiltraMais, queremos garantir ao máximo a sua satisfação, por isso liberamos 7 dias para você decidir se vale a pena ou não. Basta solicitar o seu reembolso enviando um simples e-mail para o nosso suporte dentro do prazo de 7 dias.</p>
+                        <p>OU SEJA, SE VOCÊ NÃO ESTIVER SATISFEITO COM NOSSO APLICATIVO E NÃO GOSTAR BASTA SOLICITAR O REEMBOLSO DIRETO PELA PLATAFORMA.</p>
+                        
+                        <!-- Botão com efeito hover e centralizado -->
+                        <div class="text-center mt-3">
+                            <a href="https://pay.kiwify.com.br/uFfgKjR" class="btn btn-secondary text-white rounded-pill py-2 px-4 ms-3" target="_blank" style="font-size: 1.2rem;">Quero meu acesso agora no aplicativo</a>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Garantia de 07 Dias End -->
+        
+<!-- Footer Start -->
+<div class="container-fluid bg-primary text-light footer mt-1 pt-1 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-1 px-lg-3">
+        <div class="row g-2">
+            <div class="col-md-6 col-lg-12">
+                <h5 class="text-white mb-2">Entre em contato</h5>
+
+                <p class="d-flex align-items-center">
+                    <i class="fa fa-map-marker-alt me-1"></i>
+                    P. A. Indiana, SN, Zona Rural - Araguatins/TO&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;
+                    <i class="fa fa-phone-alt me-1"></i>(63) 9 9225-9154&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;
+                    <i class="fa fa-envelope me-1"></i>natal.santiago.filtramais@gmail.com&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;
+                    <a class="btn btn-outline-light btn-social ms-1" href="https://api.whatsapp.com/send?phone=5563992259154&text=Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20FiltraMais" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container px-lg-2">
+        <div class="copyright">
+            <div class="row">
+                <div class="col-md-8 text-center text-md-start mb-1 mb-md-0">
+                    &copy; <a class="border-bottom" style="font-size: larger" href="#">M. C. Marketing Digital</a>, Todos os direitos reservados. 
+                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                    Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                </div>
+                <div class="col-md-4 text-center text-md-end">
+                    <div class="footer-menu">
+                        <a href="">Home</a>
+                        <a href="">Cookies</a>
+                        <a href="">Help</a>
+                        <a href="">FQAs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
