@@ -163,11 +163,10 @@
             + "?subject=" + encodeURIComponent(subject)
             + "&body=" + encodeURIComponent("Nome: " + name + "\nEmail: " + email + "\nWhatsApp: " + whatsapp + "\n\nMensagem: " + message);
 
-        // Redirecione para o link 'mailto'
-        window.location.href = mailtoLink;
+        // Abra um novo link de e-mail
+        window.open(mailtoLink, "_blank");
     });
-</script>        
-
+</script>
         <!-- Contact End -->
         
 

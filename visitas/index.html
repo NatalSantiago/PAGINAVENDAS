@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibir Dados</title>
+    <!-- Adicione a biblioteca Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #graficoContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Ajuste para exibir o título e a sublegenda abaixo do gráfico */
+            width: 100%;
+            height: 100vh;
+        }
+
+        #myChart {
+            margin-top: 20px; /* Ajuste a margem superior conforme necessário */
+        }
+    </style>
+</head>
+<body>
+    <!-- Adicione um elemento div para o gráfico -->
+    <div id="graficoContainer">
+        <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+
+    <script>
+        fetch('https://clonei.pythonanywhere.com/get-data')
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    const dadosAgrupados = agruparDados(data.data);
+                    const totalCliques = data.data.length; // Usar o comprimento do array de dados como total de cliques
+                    exibirGrafico(dadosAgrupados, totalCliques);
+                } else {
+                    console.error('Erro ao recuperar dados:', data.message);
+                }
+            })
+            .catch(error => console.error('Erro na requisição:', error));
+
+        function agruparDados(dados) {
+            const mapaCliques = new Map();
+
+            // Agrupa os dados pelo par cidade/estado
+            dados.forEach(dado => {
+                const chave = `${dado.cidade}, ${dado.estado}`;
+
+                if (mapaCliques.has(chave)) {
+                    // Se a chave já existe, incrementa a quantidade de cliques
+                    mapaCliques.get(chave).qtdCliques += 1;
+                } else {
+                    // Se a chave não existe, adiciona ao mapa
+                    mapaCliques.set(chave, { cidade: dado.cidade, estado: dado.estado, qtdCliques: 1 });
+                }
+            });
+
+            // Converte o mapa para um array de objetos
+            return Array.from(mapaCliques.values());
+        }
+
+        function gerarCores(qtdCores) {
+            const cores = [];
+            for (let i = 0; i < qtdCores; i++) {
+                const cor = `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0.8)`;
+                cores.push(cor);
+            }
+            return cores;
+        }
+
+        function exibirGrafico(dados, totalCliques) {
+            const ctx = document.getElementById('myChart').getContext('2d');
+
+            // Extrai os rótulos (cidades) e dados do objeto
+            const labels = dados.map(dado => `${dado.cidade}, ${dado.estado} - Qtd Cliques: ${dado.qtdCliques}`);
+            const data = dados.map(dado => dado.qtdCliques);
+
+            // Gera cores automaticamente com base no número de rótulos
+            const coresAutomaticas = gerarCores(labels.length);
+
+            // Cria um gráfico de pizza
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: coresAutomaticas,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: false,
+                            text: 'Detalhamento de Visitas por Cidade'
+                        }
+                    },
+                    layout: {
+                        padding: {
+                            left: 10,
+                            right: 10,
+                            top: 10,
+                            bottom: 10
+                        }
+                    }
+                }
+            });
+
+            // Adiciona o título personalizado com o total geral dinâmico
+            const tituloPersonalizado = document.createElement('h1');
+            tituloPersonalizado.innerText = `Total geral de cliques na página FiltraMais.com: ${totalCliques}`;
+            tituloPersonalizado.style.textAlign = 'center';
+            tituloPersonalizado.style.marginTop = '100px';
+            document.getElementById('graficoContainer').insertBefore(tituloPersonalizado, document.getElementById('myChart'));
+        }
+    </script>
+</body>
+</html>
