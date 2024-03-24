@@ -3,6 +3,8 @@
 
 Este é um projeto de uma página de vendas com rastreamento de acessos. assim você saberá de onde estão acessando sua página.
 
+![Captura de Tela](https://i.postimg.cc/bwmZjSGz/Visitas.png)
+
 <div> 
 
 # Caso queira dar uma olhada na pagina online fique a vontade.
