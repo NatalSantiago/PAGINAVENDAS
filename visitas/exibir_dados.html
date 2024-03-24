@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibir Dados</title>
+</head>
+<body>
+    <h1>Registros de Visitas</h1>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>Quantidade de Cliques</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="registros">
+            <!-- Os registros serão adicionados dinamicamente aqui -->
+        </tbody>
+    </table>
+
+    <script>
+        function carregarRegistros() {
+            fetch('https://clonei.pythonanywhere.com/get-data')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        const registros = document.getElementById('registros');
+                        registros.innerHTML = '';
+    
+                        data.data.forEach(registro => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${registro.cidade}</td>
+                                <td>${registro.estado}</td>
+                                <td>${registro.qtd_cliques}</td>
+                                <td><button onclick="excluirRegistro(${registro.id})">Excluir</button></td>
+                            `;
+                            registros.appendChild(row);
+                        });
+                    } else {
+                        console.error('Erro ao recuperar dados:', data.message);
+                    }
+                })
+                .catch(error => console.error('Erro na requisição:', error));
+        }
+    
+        function excluirRegistro(id) {
+            console.log('ID do Registro:', id); // Adicionando console.log para verificar o ID
+    
+            const confirmacao = confirm('Tem certeza que deseja excluir este registro?');
+    
+            if (confirmacao) {
+                fetch('https://clonei.pythonanywhere.com/excluir-registro', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ id }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        alert('Registro excluído com sucesso!');
+                        carregarRegistros();
+                    } else {
+                        console.error('Erro ao excluir registro:', data.message);
+                    }
+                })
+                .catch(error => console.error('Erro na requisição:', error));
+            }
+        }
+    
+        carregarRegistros();
+    </script>
+        
+</body>
+</html>
